@@ -42,8 +42,31 @@ public class Employee {
 	public static int getCOUNT() {
 		return COUNT;
 	}
-	@Override
-	public String toString() {
+	public String tostring() {
+		StringBuffer buffer=new StringBuffer();
+		buffer.append("Employee Details: EmpID");
+		buffer.append(empId);
+		buffer.append("Name");
+		buffer.append(name);
 		return getEmpId()+","+getName();
 	}
+	public String toString_StringBuilder() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Employee [empId=");
+		builder.append(empId);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append("]");
+		return builder.toString();
+	}
+	public String toString_chained() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Employee [empId=").append(empId).append(", name=").append(name).append("]");
+		return builder.toString();
+	}
+	public String toString_format() {
+		return String.format("Employee [empId=%s, name=%s]", empId, name);
+	}
+	
+		
 }

@@ -42,6 +42,9 @@ class Circle extends Shape{
 	public double calcArea(){
 		return radius*radius*Math.PI;
 	}
+	public void showCircle(){
+		System.out.println("I am Circle.....");
+	}
 	// toString
 	@Override
 	public String toString()
@@ -63,6 +66,12 @@ public class Circle_Test {
 		Circle c1 = new Circle();
 		System.out.println(c1);
 		c1.draw();
+		c1.calcArea();
+		c1.showCircle();
+		Shape shape= new Circle();
+		shape.draw();
+		shape.calcArea();
+		//shape.showCircle();//parent class cannot access child class methods
 	}
 	
 }
