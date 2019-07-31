@@ -15,4 +15,10 @@ public class AccountOperationImpl implements AccountOperation{
 	public void AccountDetail(int accountno) {
 		System.out.println(hash.get(accountno));	
 	}
+	@Override
+	public void Deposit(int accountno,long deposit) {
+		long temp=hash.get(accountno).getCurrentBalance();
+		temp+=deposit;
+		hash.get(accountno).setCurrentBalance(temp);
+	}
 }
