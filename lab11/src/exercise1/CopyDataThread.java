@@ -1,19 +1,24 @@
 package exercise1;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class CopyDataThread implements Runnable {
-	private static int COUNT=0;
+	private static int COUNT = 0;
 
 	public CopyDataThread() {
 	}
+
 	public void run() {
-		try(FileReader sourcefile=new FileReader("c:\\Users\\shakthk\\Desktop\\capgemini\\target.txt");FileWriter targetfile = new FileWriter("c:\\Users\\shakthk\\Desktop\\capgemini\\target.txt",true);) {
-			int input=0;
-			while((input=sourcefile.read())!=-1){
-				System.out.println((char) input);
-			targetfile.write((char) input);
+		try(BufferedReader br=new BufferedReader(new FileReader("c:\\Users\\shakthk\\Desktop\\capgemini\\source.txt"));
+				BufferedWriter bw=new BufferedWriter(new FileWriter("c:\\Users\\shakthk\\Desktop\\capgemini\\target.txt"))) {
+			int str;
+			while((str=br.read())!=-1){
+				System.out.println((char)str);
+			bw.write(str);
 			new Thread().join();
 			COUNT++;
 			if(COUNT==10){
