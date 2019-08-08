@@ -1,0 +1,10 @@
+try (BufferedWriter bw=new BufferedWriter(new FileWriter("C:\\Users\\shakthk\\Desktop\\capgemini\\Eclipse Workspace\\ParallelProjectBank\\Accounts.txt"));){
+			hash.put(account.getAccountNo(), account);
+			String str=account.toString();
+			bw.write(str);
+			bw.write("\n");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
