@@ -12,6 +12,7 @@ public class AccountOperationImpl implements AccountOperation{
 	@Override
 	public void createAccount(Accounts account) {
 		hash.put(account.getAccountNo(), account);
+		trans.put(account.getAccountNo(), t.setTransaction(account.getOpenBalance(), "Credited to your account"));
 	}
 
 	@Override
@@ -24,6 +25,9 @@ public class AccountOperationImpl implements AccountOperation{
 		long temp=hash.get(accountno).getCurrentBalance();
 		temp+=deposit;
 		hash.get(accountno).setCurrentBalance(temp);
+		List<String>tempo=trans.get(accountno);
+		tempo.add(deposit+"is Credited to your account");
+		trans.put(accountno,tempo);
 	}
 
 	@Override
@@ -31,11 +35,19 @@ public class AccountOperationImpl implements AccountOperation{
 		long temp=hash.get(accountno).getCurrentBalance();
 		temp-=withdraw;
 		hash.get(accountno).setCurrentBalance(temp);
+		List<String>tempo=trans.get(accountno);
+		tempo.add(withdraw+"is debited from your account");
+		trans.put(accountno,tempo);
 	}
 
 	@Override
 	public void fundTransfer(int senderAccountno, int BeneficiaryAccountno,long fund) {
 		Withdraw(senderAccountno,fund);
 		Deposit(BeneficiaryAccountno, fund);
+	}
+
+	@Override
+	public void printTransaction(int accountno) {
+		System.out.println(trans.get(accountno));
 	}
 }

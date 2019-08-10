@@ -1,26 +1,49 @@
 package com.capgemini.bank.bean;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
 public class Accounts implements Serializable {
 	private int accountNo;
 	private String Name;
 	private long openBalance;
 	private long currentBalance;
+	public static int COUNT = 100;
 
-	// private static int COUNT=100000;
-	public Accounts(){
-		
+	Customers customer=new Customers();
+	Address address=new Address();
+	public Accounts() {
+
 	}
-	public Accounts(int accountNo, String name, long openBalance, long currentBalance) {
+
+	public Accounts(String name, long openBalance, long currentBalance) {
 		super();
-		setAccountNo(accountNo);
+		COUNT++;
+		setAccountNo(COUNT);
 		setName(name);
 		setOpenBalance(openBalance);
 		setCurrentBalance(currentBalance);
 	}
+	public void info(){
+		Scanner scan=new Scanner(System.in);
+		System.out.println("Enter Your Age: ");
+		customer.setAge(scan.nextInt());
+		System.out.println("Enter Your Gender: ");
+		customer.setGender(scan.next());
+		System.out.println("Select your accout type:\n1.Savings \n2.Current\n");
+		customer.setAccountType(scan.next());
+		System.out.println("Enter your DoorNo: ");
+		address.setDoorNo(scan.next());
+		System.out.println("Enter your Street: ");
+		address.setStreet(scan.next());
+		System.out.println("Enter your Area: ");
+		address.setArea(scan.next());
+		System.out.println("Enter your City: ");
+		address.setCity(scan.next());	
+	}
+
 	public int getAccountNo() {
-		
+
 		return accountNo;
 	}
 
@@ -37,10 +60,7 @@ public class Accounts implements Serializable {
 	}
 
 	public void setAccountNo(int accountNo) {
-		this.accountNo = accountNo; 
-		/*
-		 * accountNo=COUNT; COUNT++;
-		 */
+		this.accountNo = accountNo;
 	}
 
 	public void setName(String name) {
@@ -57,7 +77,7 @@ public class Accounts implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Accounts [accountNo=" + accountNo + ", Name=" + Name + ", openBalance=" + openBalance
-				+ ", currentBalance=" + currentBalance + "]";
+		return "AccountNo= " + accountNo + ", \nName= " + Name + ", \nOpenBalance= " + openBalance
+				+ ", \nCurrentBalance= " + currentBalance+customer.toString()+address.toString();
 	}
 }

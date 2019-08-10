@@ -6,4 +6,5 @@ public interface AccountOperation {
       void Deposit(int accountno,long deposit);
       void Withdraw(int accountno,long withdraw);
       void fundTransfer(int senderAccountno,int BeneficiaryAccountno,long fund);
+      void printTransaction(int accountno);
 }

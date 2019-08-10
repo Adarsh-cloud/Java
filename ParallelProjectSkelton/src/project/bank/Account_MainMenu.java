@@ -50,7 +50,7 @@ public class Account_MainMenu {
 			int acc=scan.nextInt();
 			System.out.println("Enter the amount to withdraw...");
 			long withdraw=scan.nextLong();
-			accountoperation.Deposit(acc,withdraw);
+			accountoperation.Withdraw(acc,withdraw);
 			break;
 		}
 		case 5:{
@@ -61,6 +61,12 @@ public class Account_MainMenu {
 			System.out.println("Enter the Amount to be transferred: ");
 			long fund=scan.nextLong();
 			accountoperation.fundTransfer(sender, to, fund);
+			break;
+		}
+		case 6:{
+			System.out.println("Enter the From Account: ");
+			int account=scan.nextInt();
+			accountoperation.printTransaction(account);
 			break;
 		}
 		}

@@ -27,11 +27,9 @@ public class Transaction {
 	public String getTransDescription(){
 		return transDescription;
 	}
-	List<String>transaction=new ArrayList<String>();
-	public void setTransaction(int amt,String desc){
+	public List<String> setTransaction(long amt,String desc){
+		List<String>transaction=new ArrayList<String>();
 		transaction.add("Amount: "+amt+"is"+desc);
-	}
-	public List<String> getTransaction(){
 		return transaction;
 	}
 }
